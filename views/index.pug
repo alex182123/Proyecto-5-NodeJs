@@ -1,0 +1,31 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(rel="stylesheet", href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous")
+        script(src=src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous") 
+        title Document
+    body
+        header(class="border-bottom border-3") 
+            nav(class="navbar navbar-default") 
+                div(class="container-fluid")
+                    div(class="navbar-header")
+                        a(class="navbar-brand" href="index.pug") Inicio 
+                        a(class="navbar-brand" href="clientes.pug") Clientes 
+                        a(class="navbar-brand" href="verclientes.pug") Ver Clientes 
+                    ul(class="nav navbar-nav")
+        div(class="text-center my-5")
+            h3(class="text-center") Jostin Constructions
+            p Esta pagina es para un proyecto final de programacion 3.
+            p La pagina es acerca de una constructora, la cual exibe sus construcciones.
+            p Tambien permite el registro para un cola de construccion el cual los clientes puede solicitar una construccion
+            p Las paginas de todo el proyecto se encuentran realizadas en css y un framework para poder crear paginas llamado pug.
+            p El proyecto cuenta con una base de datos no relacional la cual es mongo db.
+            p La cual se utiliza para almacenar algunos datos sobre algunos clientes.
+            img(src="https://www.rocketmortgage.com/resources-cmsassets/RocketMortgage.com/Article_Images/Large_Images/TypesOfHomes/types-of-homes-hero.jpg", alt="Casa1", srcset="" width="500px")
+        footer(class="bg-dark text-center text-white")
+            div(class="container p-3")
+                p 2022 Copyrigth
+    
