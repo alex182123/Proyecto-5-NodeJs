@@ -18,13 +18,24 @@ html(lang="en")
                     ul(class="nav navbar-nav")
         div(class="text-center my-5")
             h3(class="text-center") Jostin Constructions
-            p Esta pagina es para un proyecto final de programacion 3 #{Datos1}.
+            p Esta pagina es para un proyecto final de programacion 3
             p La pagina es acerca de una constructora, la cual exibe sus construcciones.
             p Tambien permite el registro para un cola de construccion el cual los clientes puede solicitar una construccion
             p Las paginas de todo el proyecto se encuentran realizadas en css y un framework para poder crear paginas llamado pug.
             p El proyecto cuenta con una base de datos no relacional la cual es mongo db.
             p La cual se utiliza para almacenar algunos datos sobre algunos clientes.
             img(src="https://www.rocketmortgage.com/resources-cmsassets/RocketMortgage.com/Article_Images/Large_Images/TypesOfHomes/types-of-homes-hero.jpg", alt="Casa1", srcset="" width="500px")
+            table.table.table-striped
+                thead
+                    th Nombre
+                    th Apellido
+                    th Presupuestos
+                tbody
+                    each dato in Datos1
+                        tr
+                            td #{dato.Nombre}
+                            td #{dato.Apellidos}
+                            td #{dato.Presupuestos}
         footer(class="bg-dark text-center text-white")
             div(class="container p-3")
                 p 2022 Copyrigth

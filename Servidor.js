@@ -25,11 +25,11 @@ async function Consultar(){
         /* module.exports = () => */await moongose.connect(uri,{ useNewUrlParser: true, useUnifiedTopology: true})
         const { Schema } = moongose
         const ClientesSchema = new Schema({
-            Nombre:{
-                type : String
-            }
-            
-        })
+            Nombre:{type:String},
+            Apellidos:{type:String},
+            Presupuestos:{type:String}
+        });
+        moongose.models = {}
         const ClientesModel = moongose.model('Clientes',ClientesSchema)
         const TodosClientes = await ClientesModel.find().then()
         Datos = TodosClientes
@@ -40,21 +40,46 @@ async function Consultar(){
     }
 }
 
+async function Ingresar(){
+    try{
+        
+    }catch(error1){
+        console.log(error1)
+    }
+}
 app.set("view engine","pug");
 app.set("views",path.join(__dirname,"views"));
-Consultar()
+//Consultar()
 app.get('/',function(peticion,respuesta){
-    Consultar()
+    //Consultar()
     //Connectar()
     respuesta.render('index.pug');
 });
 app.get('/index.pug',function(peticion,respuesta){
     respuesta.render('index.pug',{});
 });
-app.get('/clientes.pug',function(peticion,respuesta){
-    respuesta.render('clientes.pug',{});
+app.get('/clientes.pug',function(peticion,respuesta,next){
+        respuesta.render('clientes.pug')
 });
-app.get('/verclientes.pug',function(peticion,respuesta){
+app.get('/registrarCliente',function(peticion,respuesta,next){
+    moongose.connect(uri)
+    const { Schema } = moongose
+    const ClientesBD = new moongose.Schema({
+        Nombre:{type:String},
+        Apellidos:{type:String},
+        Presupuestos:{type:String}
+    });
+    moongose.models = {}
+    var NuevoCliente = moongose.model('Clientes',ClientesBD)
+    var Cliente = new NuevoCliente({
+        Nombre: peticion.query.txtNombre,
+        Apellidos: peticion.query.txtApellidos,
+        Presupuestos: peticion.query.txtPresupuesto
+    });
+    Cliente.save();
+    respuesta.render('clientes.pug')
+});
+app.get('/verclientes.pug',function(peticion,respuesta,next){
     Consultar()
     respuesta.render('verclientes.pug',{Datos1: Datos});
 });

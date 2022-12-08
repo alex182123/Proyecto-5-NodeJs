@@ -23,19 +23,22 @@ html(lang="en")
             p Tambien permite el registro para un cola de construccion el cual los clientes puede solicitar una construccion
             p A continuacion se le presentara un formulario para poder pedir su solicitud de construccion.
         div(class="text-center")
+        form(name="AgregarCliente" action='/registrarCliente', method='GET' )
             h3 Formulario
             br 
             span Nombre  
             br
-            input(type="text")
+            input.form-control(type="text" name="txtNombre" id='txtNombre')
             br
             span Apellidos  
             br
-            input(type="text")
+            input.form-control(type="text" name="txtApellidos" id="txtApellidos")
             br
             span Presupuestos  
             br
-            input(type="number")
+            input.form-control(type="number" name="txtPresupuesto")
+            br
+            button(type="submit") Enviar
 
                 
         footer(class="bg-dark text-center text-white")
